@@ -46,6 +46,7 @@ while ($row = $query->fetch(PDO::FETCH_OBJ)) {
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title"> <?= $food->name ?></h5>
+                                        <div class="card-descr"> <?= $food->descr ?></div>
                                         <p class="card-price"> <?= $food->price ?></p>
                                         <button data-food-id="<?= $food->id ?>" class="btn btn-primary addTobasket">
                                             Добавить

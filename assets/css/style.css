@@ -35,8 +35,8 @@
 }
 
 .left__block {
-    width: 400px;
-    max-width: 400px;
+    width: 380px;
+    max-width: 380px;
     background: #efefef;
     right: 5%;
     position: absolute;
@@ -55,13 +55,13 @@
 }
 
 .total-price:after, .discount__price:after {
-    content: ' ₽';
+    content: ' Р';
 }
 
 .tab-content {
     flex-grow: 1;
     flex-basis: 0;
-    max-width: calc(100% - 400px);
+    max-width: calc(100% - 380px);
     padding-right: 40px;
 }
 
@@ -183,4 +183,16 @@ td {
 }
 .order__foods{
     width: 350px;
+}
+.card-price{
+    margin: 10px 0 10px;
+}
+.card-descr{
+    font-size: 12px;
+    line-height: 120%;
+    margin: 10px 0 0;
+
+}
+.card-price:after {
+    content: ' Р';
 }

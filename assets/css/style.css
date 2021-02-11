@@ -51,7 +51,11 @@
 }
 
 .total-price, .discount__price {
+    flex-grow: 1;
     color: #1e7e34;
+    flex-basis: 0;
+    max-width: 100%;
+    text-align: right;
 }
 
 .total-price:after, .discount__price:after {
@@ -65,11 +69,21 @@
     padding-right: 40px;
 }
 
-#discount {
+.inputs {
+    width: 80px;
+    display: inline-block;
+}
+.inputs div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputs input {
     width: 50px;
-    margin: 0 20px;
     border: none;
     outline: none;
+    margin: 3px 0;
 }
 
 .total, .discount {
@@ -79,6 +93,11 @@
     margin-bottom: 20px;
     padding: 20px;
 
+}
+
+.discount .discount__title {
+    font-size: 16px;
+    width: 85px;
 }
 
 .nav-pills {
@@ -181,18 +200,28 @@ td {
 .histoty__oldPrice, .histoty__newPrice {
     width: 60px;
 }
-.order__foods{
+
+.order__foods {
     width: 350px;
 }
-.card-price{
+
+.card-price {
     margin: 10px 0 10px;
 }
-.card-descr{
+
+.card-descr {
     font-size: 12px;
     line-height: 120%;
     margin: 10px 0 0;
 
 }
+
 .card-price:after {
+    content: ' Р';
+}
+#percent:after{
+    content: ' %';
+}
+#percent:after{
     content: ' Р';
 }

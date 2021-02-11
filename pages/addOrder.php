@@ -26,10 +26,11 @@ while ($row = $query->fetch(PDO::FETCH_OBJ)) {
             foreach ($categories as $key => $category):?>
 
                 <li class="nav-item " role="presentation">
-                    <a class="nav-link <?= ($key == 1) ? 'active' : ''; ?>" id="<?= $category->id ?>" data-toggle="pill"
+                    <a class="nav-link <?= ($key == 1) ? 'active' : ''; ?>" id="<?= $category->id; ?>"
+                       data-toggle="pill"
                        href="#pills-<?= $category->id ?>" role="tab"
                        aria-controls="pills-<?= $category->id ?>"
-                       aria-selected="<?= ($key == 1) ? 'true' : 'false'; ?>""><?= $category->name ?></a>
+                       aria-selected="<?= ($key == 1) ? 'true' : 'false'; ?>""><?= $category->name; ?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -67,7 +68,14 @@ while ($row = $query->fetch(PDO::FETCH_OBJ)) {
                 <div class="discount">
                     <div class="discount__title">
                         Цена со скидкой
-                        <input id="discount" type="number" value="">
+                    </div>
+                    <div class="inputs">
+                        <div>
+                            % <input id="percent" type="number" value="">
+                        </div>
+                        <div>
+                            Р <input id="count" type="number" value="">
+                        </div>
                     </div>
                     <div class="discount__price">0</div>
                 </div>
@@ -188,13 +196,22 @@ while ($row = $query->fetch(PDO::FETCH_OBJ)) {
             return total
         }
 
-        $('#discount').on('input', function () {
+        $('#percent').on('input', function () {
             let disc = $(this).val()
             let total = parseInt($('#total').text())
             if (total > 0 || disc > 0) {
                 disc = disc / 100
                 $('.discount__price').text(Math.ceil(total - total * disc))
             }
+            $('#count').val(0)
+        });
+        $('#count').on('input', function () {
+            let disc = $(this).val()
+            let total = parseInt($('#total').text())
+            if (total > 0 || disc > 0) {
+                $('.discount__price').text(Math.ceil(total - disc))
+            }
+            $('#percent').val(0)
         });
         let order = {
             name: '',
